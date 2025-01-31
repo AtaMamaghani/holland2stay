@@ -273,6 +273,7 @@ Contract type: {house['contract_type']}
 def scrape(cities=[], page_size=30):
     payload = generate_payload(cities, page_size)
     response = requests.post("https://api.holland2stay.com/graphql/", json=payload, headers={"Content-Type":"application/json"})
+    print(response.text)
     print(response.json())
     data = response.json()["data"]
     cities_dict = {}
