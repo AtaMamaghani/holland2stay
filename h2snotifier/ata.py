@@ -42,13 +42,20 @@ headers = {
     'referer': 'https://holland2stay.com/',
 }
 
-session = requests.Session()
+# session = requests.Session()
 
-# First make a GET request to establish cookies
-session.get("https://holland2stay.com/", headers=headers)
+# # First make a GET request to establish cookies
+# session.get("https://holland2stay.com/", headers=headers)
 
-# Now make the POST request with established cookies
-response = session.post(url, headers=headers, data=payload)
+# # Now make the POST request with established cookies
+# response = session.post(url, headers=headers, data=payload)
 
-print(response.status_code)
+# print(response.status_code)
+# print(response.text)
+
+import cloudscraper
+
+scraper = cloudscraper.create_scraper()
+response = scraper.post(url, json=payload, headers=headers)
+
 print(response.text)
